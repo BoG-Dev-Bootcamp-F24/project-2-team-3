@@ -1,21 +1,14 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import { useState } from "react";
-import Login from "./pages/Login/Login";
-import SideBar from "./components/SideBar/SideBar";
-import MainContent from "./components/MainContent/MainContent";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const router = useRouter();
 
-  return(
-      (loggedIn ?
-          <Login />
-      :
-      <div className="app-body">
-          <SideBar />
-          <MainContent />
-      </div>
-      )
-  )
+  useEffect(() => {
+    router.push("/login");
+  }, [router]);
+
+  return null; // Optionally, you can return a loading spinner or similar
 }

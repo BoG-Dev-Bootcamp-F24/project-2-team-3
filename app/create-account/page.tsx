@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation"; // For routing
+import "./CreateAccount.css";
+
 
 export default function CreateAccount() {
   const [formData, setFormData] = useState({
@@ -24,6 +26,7 @@ export default function CreateAccount() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log("handleSubmit hit with formData", formData);
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
@@ -32,8 +35,7 @@ export default function CreateAccount() {
     }
 
     try {
-      // fix API user for backend
-      const response = await fetch("/api/create-user", {
+      const response = await fetch("/api/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
