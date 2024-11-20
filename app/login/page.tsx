@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./Login.css";
+import TitleBar from "../components/TitleBar/TitleBar";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -36,9 +37,12 @@ export default function Login() {
       const result = await response.json();
 
       if (response.ok) {
-        // Assuming result contains user id and admin status
-        // You might want to store these in a context or state
-        router.push("/training-logs");
+        // Store user info from successful login
+        const { _id, fullName, email, isAdmin } = result;
+        
+        // TODO: Store user info in context/state
+
+        router.push("/dashboard");
       } else {
         setError(result.message || "Failed to log in. Please try again.");
       }
@@ -48,6 +52,8 @@ export default function Login() {
   };
 
   return (
+    <>
+    <TitleBar />
     <div className="login-container">
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
@@ -76,5 +82,6 @@ export default function Login() {
         Don't have an account? <a href="/create-account">Create one</a>
       </p>
     </div>
+    </>
   );
 }

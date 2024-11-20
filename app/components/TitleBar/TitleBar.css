@@ -1,0 +1,14 @@
+.titleBar {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff; /* Adjust the color as needed */
+    border-bottom: 1px solid #ddd; /* Optional: Add a border for separation */
+  }
+  
+  .titleBar h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0;
+  } 

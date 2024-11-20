@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation"; // For routing
 import "./CreateAccount.css";
+import TitleBar from "../components/TitleBar/TitleBar";
 
 
 export default function CreateAccount() {
@@ -46,7 +47,7 @@ export default function CreateAccount() {
       const result = await response.json();
 
       if (response.ok) {
-        router.push("/training-logs");
+        router.push("/dashboard");
       } else {
         setError(result.message || "Failed to create an account. Please try again.");
       }
@@ -56,6 +57,8 @@ export default function CreateAccount() {
   };
 
   return (
+    <>
+    <TitleBar />
     <div className="create-account-container">
       <h1>Create Account</h1>
       <form onSubmit={handleSubmit}>
@@ -116,5 +119,6 @@ export default function CreateAccount() {
         </p>
       </footer>
     </div>
+    </>
   );
 }
