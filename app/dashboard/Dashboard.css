@@ -1,0 +1,9 @@
+.dashboard-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-content {
+    flex-grow: 1; /* Take up the remaining space */
+    padding: 20px; /* Add some padding */
+}
