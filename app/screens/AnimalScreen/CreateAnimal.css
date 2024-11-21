@@ -1,0 +1,89 @@
+.animal-create-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .animal-create-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .animal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .animal-form input,
+  .animal-form select,
+  .animal-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .animal-form input:focus,
+  .animal-form select:focus,
+  .animal-form textarea:focus {
+    outline: none;
+    border-color: #e74c3c;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+  }
+  
+  .animal-form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .animal-form .save-button,
+  .animal-form .cancel-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .animal-form .save-button {
+    background-color: #e74c3c;
+    color: #ffffff;
+  }
+  
+  .animal-form .save-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .animal-form .cancel-button {
+    background-color: #cccccc;
+    color: #333333;
+  }
+  
+  .animal-form .cancel-button:hover {
+    background-color: #aaaaaa;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: center;
+  }
+  
