@@ -21,7 +21,7 @@ const TrainingLogScreen: React.FC = () => {
 
   useEffect(() => {
     if (view === "list") {
-        fetch("/api/animal?userEmail=jackson@gmail.com")
+        fetch("/api/training?userEmail=jackson@gmail.com")
         .then((res) => {
           if (!res.ok) {
             throw new Error("Failed to fetch training logs");
@@ -29,6 +29,9 @@ const TrainingLogScreen: React.FC = () => {
           return res.json();
         })
         .then((data) => {
+          if (!Array.isArray(data.logs)) {
+            throw new Error("Fetched logs is not an array. This is data:", data.logs);
+          }
           setLogs(data.logs || []);
         })
         .catch((err) => console.error("Error fetching training logs:", err));
