@@ -57,10 +57,7 @@ const AnimalScreen = () => {
         <>
           <div className={styles.header}>
             <h2>Animals</h2>
-            <button
-              className={styles.createButton}
-              onClick={handleCreateClick}
-            >
+            <button className={styles.createButton} onClick={handleCreateClick}>
               + Create new
             </button>
           </div>

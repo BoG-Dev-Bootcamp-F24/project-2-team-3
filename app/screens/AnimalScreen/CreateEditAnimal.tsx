@@ -39,7 +39,11 @@ const CreateEditAnimal: React.FC<CreateEditAnimalProps> = ({
     }
   }, [animalToEdit]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     const { name, value } = e.target;
     setAnimal({ ...animal, [name]: value });
   };
@@ -47,7 +51,9 @@ const CreateEditAnimal: React.FC<CreateEditAnimalProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const endpoint = animalToEdit ? `/api/animals/${animalToEdit._id}` : "/api/animals";
+    const endpoint = animalToEdit
+      ? `/api/animals/${animalToEdit._id}`
+      : "/api/animals";
     const method = animalToEdit ? "PUT" : "POST";
 
     fetch(endpoint, {
