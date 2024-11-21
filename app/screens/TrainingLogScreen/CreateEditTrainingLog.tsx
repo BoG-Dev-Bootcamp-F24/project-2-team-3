@@ -79,8 +79,8 @@ const CreateEditTrainingLog: React.FC<CreateEditTrainingLogProps> = ({
     e.preventDefault();
 
     const endpoint = logToEdit
-      ? `/api/training-logs/${logToEdit._id}`
-      : "/api/training-logs";
+      ? `/api/training/${logToEdit._id}`
+      : "/api/training";
     const method = logToEdit ? "PUT" : "POST";
 
     fetch(endpoint, {
@@ -160,7 +160,7 @@ const CreateEditTrainingLog: React.FC<CreateEditTrainingLogProps> = ({
           required
         />
         <textarea
-          name="description"
+          name="note"
           placeholder="Note"
           value={log.note}
           onChange={handleChange}

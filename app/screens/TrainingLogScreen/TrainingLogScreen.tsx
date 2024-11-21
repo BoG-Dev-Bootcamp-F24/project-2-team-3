@@ -22,7 +22,7 @@ const TrainingLogScreen: React.FC = () => {
 
   useEffect(() => {
     if (view === "list") {
-      fetch("/api/training-logs")
+        fetch("/api/animal?userEmail=jackson@gmail.com")
         .then((res) => {
           if (!res.ok) {
             throw new Error("Failed to fetch training logs");
