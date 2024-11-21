@@ -22,7 +22,7 @@ export default function AdminUsersScreen() {
         return res.json();
       })
       .then((data) => {
-        setUsers(data);
+        setUsers(data.users);
         setLoading(false);
       })
       .catch((err) => {

@@ -51,11 +51,11 @@ export default function SideBar({ selectedTab, setSelectedTab }: SideBarProps) {
           <div className="sidebar-admin-section">
             <p>Admin Access</p>
             <div
-              className={`sidebar-item ${selectedTab === "all-training" ? "active" : ""}`}
-              onClick={() => setSelectedTab("all-training")}
+              className={`sidebar-item ${selectedTab === "admin-training" ? "active" : ""}`}
+              onClick={() => setSelectedTab("admin-training")}
             >
               <span>📂</span>
-              <Link href="/dashboard/all-training">All Training</Link>
+              <span>All Training</span>
             </div>
             <div
               className={`sidebar-item ${selectedTab === "admin-animals" ? "active" : ""}`}

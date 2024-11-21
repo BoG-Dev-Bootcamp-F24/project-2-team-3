@@ -28,7 +28,7 @@ export default function AdminAnimalScreen() {
         return res.json();
       })
       .then((data) => {
-        setAnimals(data);
+        setAnimals(data.animals);
         setLoading(false);
       })
       .catch((err) => {

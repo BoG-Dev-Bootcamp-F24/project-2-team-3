@@ -25,7 +25,7 @@ export default function AdminTrainingScreen() {
         return res.json();
       })
       .then((data) => {
-        setLogs(data);
+        setLogs(data.logs);
         setLoading(false);
       })
       .catch((err) => {
