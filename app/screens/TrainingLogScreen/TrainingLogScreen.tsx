@@ -78,7 +78,6 @@ const TrainingLogScreen: React.FC = () => {
         </>
       ) : (
         <CreateEditTrainingLog
-          logToEdit={logToEdit}
           onCancel={handleBackToList}
           onSuccess={handleBackToList}
         />

@@ -3,13 +3,24 @@ import styles from "./CreateEditTrainingLog.module.css";
 
 interface TrainingLog {
   _id?: string;
-  date: string;
   title: string;
+  animalID: string;
+  date: string;
   hours: number;
-  user: string;
+  note: string;
+  userEmail: string;
+}
+
+interface Animal {
+  _id?: string;
+  name: string;
   breed: string;
-  animal: string;
-  description: string;
+  hoursTrained: number;
+  birthMonth: string;
+  birthDay: string;
+  birthYear: string;
+  note: string;
+  image?: string;
 }
 
 interface CreateEditTrainingLogProps {
@@ -27,11 +38,27 @@ const CreateEditTrainingLog: React.FC<CreateEditTrainingLogProps> = ({
     date: new Date().toISOString().split("T")[0],
     title: "",
     hours: 0,
-    user: "",
-    breed: "",
-    animal: "",
-    description: "",
+    userEmail: "jackson@gmail.com",
+    note: "",
+    animalID: "",
   });
+
+  const [animals, setAnimals] = useState<Animal[]>([]);
+  const userEmail = "jackson@gmail.com"; // Replace with the actual user's email
+
+  useEffect(() => {
+    fetch(`/api/animal?userEmail=${userEmail}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch animals");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setAnimals(data.animals || []);
+      })
+      .catch((err) => console.error("Error fetching animals:", err));
+  }, [userEmail]);
 
   useEffect(() => {
     if (logToEdit) {
@@ -86,16 +113,19 @@ const CreateEditTrainingLog: React.FC<CreateEditTrainingLogProps> = ({
           required
         />
         <select
-          name="animal"
-          value={log.animal}
+          name="animalID"
+          value={log.animalID.toString()}
           onChange={handleChange}
           required
         >
           <option value="">Select Animal</option>
-          <option value="Lucy - Golden Retriever">
-            Lucy - Golden Retriever
-          </option>
-          {/* Add more options as needed */}
+          {animals.map(animal => (
+            animal._id ? (
+            <option key={animal._id} value={animal._id.toString()}>
+              {animal.name} - {animal.breed}
+              </option>
+            ) : null
+          ))}
         </select>
         <input
           type="number"
@@ -132,7 +162,7 @@ const CreateEditTrainingLog: React.FC<CreateEditTrainingLogProps> = ({
         <textarea
           name="description"
           placeholder="Note"
-          value={log.description}
+          value={log.note}
           onChange={handleChange}
           required
         />
