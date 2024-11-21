@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import styles from "./animal.css";
+import "./AnimalScreen.css";
 import CreateEditAnimal from "./CreateEditAnimal";
 
 interface Animal {
@@ -10,8 +10,8 @@ interface Animal {
   breed: string;
   hoursTrained: number;
   birthMonth: string;
-  birthDate: string;
   birthYear: string;
+  birthDay: string;
   note: string;
   image?: string;
 }
@@ -23,7 +23,7 @@ const AnimalScreen = () => {
 
   useEffect(() => {
     if (view === "list") {
-      fetch("/api/animals")
+      fetch("/api/animal?userEmail=jackson@gmail.com")
         .then((res) => {
           if (!res.ok) {
             throw new Error("Failed to fetch animals");
@@ -52,28 +52,28 @@ const AnimalScreen = () => {
   };
 
   return (
-    <div className={styles.mainContent}>
+    <div className="mainContent">
       {view === "list" ? (
         <>
-          <div className={styles.header}>
+          <div className="header">
             <h2>Animals</h2>
-            <button className={styles.createButton} onClick={handleCreateClick}>
+            <button className="create-button" onClick={handleCreateClick}>
               + Create new
             </button>
           </div>
-          <div className={styles.animalGrid}>
+          <div className="animal-grid">
             {animals.map((animal) => (
-              <div key={animal._id} className={styles.animalCard}>
+              <div key={animal._id} className="animal-card">
                 <img
-                  src={animal.image || "/default.png"}
+                  src={animal.image || "https://www.hudsonanimalhospitalnyc.com/sites/default/files/styles/large/public/golden-retriever-dog-breed-info.jpg?itok=HAmFCOvb"}
                   alt={animal.name}
-                  className={styles.animalImage}
+                  className="animal-image"
                 />
                 <h3>{animal.name}</h3>
                 <p>Breed: {animal.breed}</p>
                 <p>Hours Trained: {animal.hoursTrained}</p>
                 <button
-                  className={styles.editButton}
+                  className="edit-button"
                   onClick={() => handleEditClick(animal)}
                 >
                   Edit

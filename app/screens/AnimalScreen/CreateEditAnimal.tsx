@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./CreateAnimal.css";
+import "./CreateAnimal.css";
 
 interface Animal {
   _id?: string;
@@ -7,7 +7,7 @@ interface Animal {
   breed: string;
   hoursTrained: number;
   birthMonth: string;
-  birthDate: string;
+  birthDay: string;
   birthYear: string;
   note: string;
 }
@@ -28,7 +28,7 @@ const CreateEditAnimal: React.FC<CreateEditAnimalProps> = ({
     breed: "",
     hoursTrained: 0,
     birthMonth: "",
-    birthDate: "",
+    birthDay: "",
     birthYear: "",
     note: "",
   });
@@ -52,14 +52,19 @@ const CreateEditAnimal: React.FC<CreateEditAnimalProps> = ({
     e.preventDefault();
 
     const endpoint = animalToEdit
-      ? `/api/animals/${animalToEdit._id}`
-      : "/api/animals";
+      ? `/api/animal/${animalToEdit._id}`
+      : "/api/animal";
     const method = animalToEdit ? "PUT" : "POST";
+
+    const animalToSend = {
+      ...animal,
+      userEmail: "jackson@gmail.com"
+    };
 
     fetch(endpoint, {
       method,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(animal),
+      body: JSON.stringify(animalToSend),
     })
       .then((res) => {
         if (!res.ok) {
@@ -74,9 +79,9 @@ const CreateEditAnimal: React.FC<CreateEditAnimalProps> = ({
   };
 
   return (
-    <div className={styles["animal-create-container"]}>
+    <div className="animal-create-container">
       <h1>{animalToEdit ? "Edit Animal" : "Create Animal"}</h1>
-      <form onSubmit={handleSubmit} className={styles["animal-form"]}>
+      <form onSubmit={handleSubmit} className="animal-form">
         <input
           type="text"
           name="name"
@@ -115,9 +120,9 @@ const CreateEditAnimal: React.FC<CreateEditAnimalProps> = ({
           </select>
           <input
             type="number"
-            name="birthDate"
+            name="birthDay"
             placeholder="Date"
-            value={animal.birthDate}
+            value={animal.birthDay}
             onChange={handleChange}
             required
           />
@@ -136,13 +141,13 @@ const CreateEditAnimal: React.FC<CreateEditAnimalProps> = ({
           value={animal.note}
           onChange={handleChange}
         />
-        <div className={styles["button-group"]}>
-          <button type="submit" className={styles["save-button"]}>
+        <div className="button-group">
+          <button type="submit" className="save-button">
             {animalToEdit ? "Update" : "Save"}
           </button>
           <button
             type="button"
-            className={styles["cancel-button"]}
+            className="cancel-button"
             onClick={onCancel}
           >
             Cancel

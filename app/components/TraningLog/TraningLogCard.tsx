@@ -9,6 +9,7 @@ interface TrainingLogCardProps {
   breed: string;
   animal: string;
   description: string;
+  onEdit: () => void;
 }
 
 const TrainingLogCard: React.FC<TrainingLogCardProps> = ({
