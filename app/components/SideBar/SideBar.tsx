@@ -36,7 +36,7 @@ export default function SideBar({ selectedTab, setSelectedTab }: SideBarProps) {
           onClick={() => setSelectedTab("training-logs")}
         >
           <span>📕</span>
-          <Link href="/dashboard/training-logs">Training Logs</Link>
+          <span>Training Logs</span>
         </div>
         <div
           className={`sidebar-item ${selectedTab === "animals" ? "active" : ""}`}
