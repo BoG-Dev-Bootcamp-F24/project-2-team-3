@@ -5,10 +5,6 @@ import bcrypt from 'bcrypt';
 export async function POST(req: NextRequest) {
   console.log("endpoint hit with body", req.body);
 
-  if (req.method !== 'POST') {
-    return NextResponse.json({ message: 'Method not allowed' }, { status: 405 });
-  }
-
   try {
     const { fullName, email, password, isAdmin } = await req.json();
 

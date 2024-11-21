@@ -58,18 +58,18 @@ export default function SideBar({ selectedTab, setSelectedTab }: SideBarProps) {
               <Link href="/dashboard/all-training">All Training</Link>
             </div>
             <div
-              className={`sidebar-item ${selectedTab === "all-animals" ? "active" : ""}`}
-              onClick={() => setSelectedTab("all-animals")}
+              className={`sidebar-item ${selectedTab === "admin-animals" ? "active" : ""}`}
+              onClick={() => setSelectedTab("admin-animals")}
             >
               <span>🐾</span>
-              <Link href="/dashboard/all-animals">All Animals</Link>
+              <span>All Animals</span>
             </div>
             <div
-              className={`sidebar-item ${selectedTab === "all-users" ? "active" : ""}`}
-              onClick={() => setSelectedTab("all-users")}
+              className={`sidebar-item ${selectedTab === "admin-users" ? "active" : ""}`}
+              onClick={() => setSelectedTab("admin-users")}
             >
               <span>👥</span>
-              <Link href="/dashboard/all-users">All Users</Link>
+              <span>All Users</span>
             </div>
           </div>
         )}
