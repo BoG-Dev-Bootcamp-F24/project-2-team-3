@@ -36,8 +36,6 @@ export default function MainContent({ selectedTab }: { selectedTab: string }) {
 
     return (
         <div className="main-content">
-            <h1>{selectedTab}</h1>
-            <hr />
             {renderContent()}
         </div>
     );

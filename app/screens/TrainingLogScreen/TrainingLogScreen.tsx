@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./TrainingLogScreen.module.css";
 import TrainingLogCard from "../../components/TraningLog/TraningLogCard";
 import CreateEditTrainingLog from "./CreateEditTrainingLog";
+import "../../globals.css";
 
 interface TrainingLog {
   _id?: string;

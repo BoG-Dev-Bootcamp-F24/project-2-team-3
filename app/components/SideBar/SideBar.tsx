@@ -43,7 +43,7 @@ export default function SideBar({ selectedTab, setSelectedTab }: SideBarProps) {
           onClick={() => setSelectedTab("animals")}
         >
           <span>🐾</span>
-          <Link href="/dashboard/animals">Animals</Link>
+          <span>Animals</span>
         </div>
 
         {/* Admin Access Section - Conditional Rendering */}
