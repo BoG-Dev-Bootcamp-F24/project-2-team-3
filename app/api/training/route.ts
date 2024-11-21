@@ -60,7 +60,7 @@ export async function GET(req: NextRequest) {
     const client = await MongoClient.connect("mongodb+srv://bogteam3:m7GFfwfLpYwd11Ln@cluster0.dbaoy.mongodb.net/project?retryWrites=true&w=majority");
     const db = client.db("project");
 
-    const animals = await db.collection('animals').find({ userEmail }).toArray();
+    const animals = await db.collection('trainingLogs').find({ userEmail }).toArray();
 
     await client.close();
 

@@ -6,13 +6,12 @@ import "../../globals.css";
 
 interface TrainingLog {
   _id?: string;
-  date: string;
   title: string;
+  animalID: string;
+  date: string;
   hours: number;
-  user: string;
-  breed: string;
-  animal: string;
-  description: string;
+  note: string;
+  userEmail: string;
 }
 
 const TrainingLogScreen: React.FC = () => {
@@ -67,10 +66,8 @@ const TrainingLogScreen: React.FC = () => {
                 date={log.date}
                 title={log.title}
                 hours={log.hours}
-                user={log.user}
-                breed={log.breed}
-                animal={log.animal}
-                description={log.description}
+                animalID={log.animalID}
+                note={log.note}
                 onEdit={() => handleEditClick(log)}
               />
             ))}
