@@ -11,8 +11,8 @@ interface SideBarProps {
 
 export default function SideBar({ selectedTab, setSelectedTab }: SideBarProps) {
   // Hardcoded values for now
-  const isAdmin = false; // Set to `true` or `false` for testing
-  const userName = "Nooo"; // Replace with a sample name
+  const isAdmin = true; // Set to `true` or `false` for testing
+  const userName = "hello"; // Replace with a sample name
 
   /*
   Uncomment the following code to implement the API call in the future:
